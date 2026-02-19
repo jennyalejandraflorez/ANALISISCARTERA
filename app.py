@@ -23,13 +23,13 @@ st.set_page_config(page_title="Análisis de Cartera - EDEQ", layout="wide")
 # =========================
 # ENCABEZADO CON LOGO Y AUTOR
 # =========================
-col_logo, col_title = st.columns([1, 4])
-with col_logo:
-    st.image("logoEDEQ.png", width=180)
-with col_title:
-    st.title("📊 Análisis de Cartera - EDEQ")
-    st.markdown("Bienvenido al Sistema Interactivo de Análisis de cartera.")
-    st.caption("Autor del programa: **Jenny Alejandra Flórez**")
+#col_logo, col_title = st.columns([1, 4])
+#with col_logo:
+ #   st.image("logoEDEQ.png", width=180)
+#with col_title:
+#    st.title("📊 Análisis de Cartera - EDEQ")
+#    st.markdown("Bienvenido al Sistema Interactivo de Análisis de cartera.")
+#    st.caption("Autor del programa: **Jenny Alejandra Flórez**")
 
 # =========================
 # CARGAR ARCHIVO EXCEL
@@ -206,4 +206,5 @@ if archivo:
         top10 = df_filtrado_servicio.nlargest(10, 'SALDO_CARTERA')[['NIU', 'NOMBRE', 'SALDO_CARTERA']]
         top10['SALDO_CARTERA'] = top10['SALDO_CARTERA'].apply(formato_pesos)
         st.table(top10.reset_index(drop=True))
+
 
