@@ -190,19 +190,20 @@ if archivo:
         st.plotly_chart(fig_edad, use_container_width=True)
 
         # Exportar gráfico a PDF
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmpfile:
-            pio.write_image(fig_edad, tmpfile.name, format="pdf")
-            pdf_bytes = tmpfile.read()
+        #with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmpfile:
+            #pio.write_image(fig_edad, tmpfile.name, format="pdf")
+            #pdf_bytes = tmpfile.read()
 
-        st.download_button(
-            label="📥 Descargar Gráfico en PDF",
-            data=pdf_bytes,
-            file_name="cartera_por_edad_de_mora.pdf",
-            mime="application/pdf"
-        )
+        #st.download_button(
+            #label="📥 Descargar Gráfico en PDF",
+            #data=pdf_bytes,
+            #file_name="cartera_por_edad_de_mora.pdf",
+            #mime="application/pdf"
+        #)
 
         # Informe 2: Top 10 cartera
         st.subheader(f"TOP 10 USUARIOS CARTERA - {filtro_servicio}")
         top10 = df_filtrado_servicio.nlargest(10, 'SALDO_CARTERA')[['NIU', 'NOMBRE', 'SALDO_CARTERA']]
         top10['SALDO_CARTERA'] = top10['SALDO_CARTERA'].apply(formato_pesos)
         st.table(top10.reset_index(drop=True))
+
